@@ -1,0 +1,16 @@
+body{
+    background-color: skyblue;
+}
+#logo
+{
+    width: 45px;
+    display: inline-block;
+}
+#heading{
+    display: inline-block;
+    align-items:stretch;
+    position: fixed;
+    color: rgb(243, 132, 4);
+    font-weight: bold;
+    font-size: 25px;
+}
