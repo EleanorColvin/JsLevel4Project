@@ -5,12 +5,26 @@ body{
 {
     width: 45px;
     display: inline-block;
+    position: fixed;
 }
 #heading{
     display: inline-block;
     align-items:stretch;
-    position: fixed;
     color: rgb(243, 132, 4);
     font-weight: bold;
     font-size: 25px;
+}
+#hText{
+    margin-left: 40px;
+    margin-top: 4px;
+    position: relative;
+}
+
+tr{
+    background-color: white;
+}
+
+table{
+    border: none;
+    margin-top: 0px;
 }
