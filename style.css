@@ -10,9 +10,11 @@ body{
 #heading{
     display: inline-block;
     align-items:stretch;
-    color: rgb(243, 132, 4);
+    color: rgb(255, 204, 0);
     font-weight: bold;
     font-size: 25px;
+    text-shadow: 1px 1px 2px rgb(4, 68, 97);
+    position: fixed;
 }
 #hText{
     margin-left: 40px;
@@ -21,11 +23,21 @@ body{
 }
 
 tr{
-    background-color:white;
+    background-color:rgb(194, 231, 249);
+    border: solid 5px skyblue;
 }
 td{
     border-style:none;
+    border-width: 0px;
+    padding: 3px;
 }
 table{
     border: none;
+    font-family:calibri;
+    border-width: 0px;
+    border-collapse:collapse;
+}
+hr{
+    height: 2px;
+    background-color:rgb(194, 231, 249);
 }

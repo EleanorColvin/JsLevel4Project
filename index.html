@@ -7,13 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GroceryList</title>
     <link rel="stylesheet" href="style.css">
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
 </head>
+
 <body onclick="initialize();">
     <div id="heading">
         <img id=logo src="shoppingCart.png">
         <p id=hText><em>Shop Lift Up</em></p>
     </div>
+    <br />
+    <br />
     <h1>Grocery List: </h1>
     <table id="myTable">
         <tr id="Pizza">
@@ -59,17 +62,23 @@
     </table>
     <hr />
     <label>
-        Enter an item to add to or remove from the list <input type="text" id="newItem" />
+        Enter an item to add <input type="text" id="newItem" />
     </label>
     <button onclick="addItem();">
         ADD
     </button>
+    <br />
+    <span id=addMessage> </span>
+    <hr />
+    <label>
+        Enter the number of an item to delete <input type="text" id="deletedItem" />
+    </label>
     <button onclick="removeItem();">
         REMOVE
     </button>
     <hr />
     <label>
-        Enter the number of an item to move it <input type="text" id="movingItem" />
+        Enter the number of an item to move <input type="text" id="movingItem" />
     </label>
 
     <button onclick="moveUp();">
