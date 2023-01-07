@@ -1,10 +1,10 @@
 let length = 5;
-let selid = "";
-let selidx = 0;
+let selId = "";
 let sel = null;
 let row = null;
 let rows = 5;
 let select = false;
+let selidx = 0;
 function initialize() {
     input = document.getElementById("newItem");
     selected = document.getElementById("movingItem");
@@ -39,42 +39,40 @@ function setNums() {
     }
 }
 function deselect() {
-    table.rows[selidx].style.backgroundColor = "purple";
     for (i = 0; i < rows; i++) {
         table.rows[i].style.backgroundColor = "white";
     }
-    selid = "";
-    selidx = 0;
+    selId = "";
     sel = null;
     document.getElementById("movingItem").value = "";
     selected = "";
+    selidx = 0;
     select = false
 }
 function checkIfSelected() {
     table = document.getElementById("myTable");
-    selected = document.getElementById("movingItem");
-    if (!selected.value == "") {
+    selected = document.getElementById("movingItem").value;
+    selected --;
+    if (!toString(selected.value) == "") {
         select = true;
-        r = document.getElementById(selected.value);
-        ri = r.rowIndex;
-        table.rows[ri].style.backgroundColor = "yellow";
+        table.rows[selected].style.backgroundColor = "yellow";
+        selidx = selected;
     }
 }
 function moveUp() {
     if (select == true) {
-        if (selid == "") {
-            selid = selected.value;
+        if (selId == "") {
+            selId = selected;
         }
-        row = document.getElementById(selid);
+        row = document.getElementById(selId);
         sel = row;
         table = document.getElementById("myTable");
         row = sel;
-        selidx = row.rowIndex;
         table.rows[selidx - 1].style.backgroundColor = "yellow";
         table.rows[selidx].style.backgroundColor = "white";
-        selidx = row.rowIndex;
+        s = selidx;
         idx2 = selidx - 1;
-        moveRows(selidx, idx2);
+        moveRows(s, idx2);
     }
 }
 function moveRows(idx1, idx2) {
@@ -86,25 +84,29 @@ function moveRows(idx1, idx2) {
     table.rows[idx2].innerHTML = temp;
     table.rows[idx2].id = tempid;
     sel = table.rows[idx2];
-    selid = table.rows[idx2].id;
-    selidx--;
-
+    selId = table.rows[idx2].id;
+    if(idx1 > idx2)
+    {
+        selidx--;
+    }
+    else{
+        selidx++;
+    }
     setNums();
 }
 function moveDown() {
     if (select == true) {
-        if (selid == "") {
-            selid = selected.value;
+        if (selId == "") {
+            selId = selected;
         }
-        row = document.getElementById(selid);
+        row = document.getElementById(selId);
         sel = row;
         table = document.getElementById("myTable");
         row = sel;
-        table = document.getElementById("myTable");
-        selidx = row.rowIndex;
         table.rows[selidx + 1].style.backgroundColor = "yellow";
         table.rows[selidx].style.backgroundColor = "white";
+        s = selidx;
         idx2 = selidx + 1;
-        moveRows(selidx, idx2);
+        moveRows(s, idx2);
     }
 }
