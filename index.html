@@ -7,61 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GroceryList</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        let length = 5;
-        let sel = "";
-        function initialize() {
-            input = document.getElementById("newItem");
-            selected = document.getElementById("movingItem");
-        }
-        function addItem() {
-            length++;
-            var table = document.getElementById("myTable");
-            let newRow = myTable.insertRow(-1);
-            newRow.id = input.value;
-            let numCell = newRow.insertCell(0);
-            numCell.innerHTML = length + ")";
-            let newCell = newRow.insertCell(1);
-            newCell.innerHTML = input.value;
-        }
-        function removeItem() {
-            var table = document.getElementById("myTable");
-            var row = document.getElementById(input.value);
-            row.parentNode.removeChild(row);
-            length--;
-            setNums();
-        }
-        function setNums() {
-            var table = document.getElementById("myTable");
-            currentNum = 1;
-            for (var i = 0, row; row = table.rows[i]; i++) {
-                var cell = row.cells[0]
-                cell.innerHTML = currentNum + ") ";
-                currentNum++;
-            }
-        }
-        function selectItem() {
-            var row = document.getElementById(selected.value);
-            row.style.backgroundColor = "yellow";
-            sel = selected.value;
-        }
-        function swapRows(row1, row2) {
-            var table = document.getElementById("myTable");
-            table.moveRow(0, 1);
-        }
-        function moveUp() {
-            selectItem();
-            var table = document.getElementById("myTable");
-            var row = document.getElementById(sel);
-            idx1 = row.rowIndex;
-            idx2 = idx1 -1;
-            table.moveRow(idx1, idx2);
-            
-        }
-        function moveDown() {
-            selectItem();
-        }
-    </script>
+    <script src = "script.js"></script>
 </head>
 
 <body onclick="initialize();">
@@ -126,11 +72,18 @@
     <label>
         Enter an item to move <input type="text" id="movingItem" />
     </label>
+
     <button onclick="moveUp();">
         ▲
     </button>
     <button onclick="moveDown();">
         ▼
+    </button>
+    <button onclick="deselect();">
+        DESELECT
+    </button>
+    <button onclick="checkIfSelected();">
+        SELECT
     </button>
 </body>
 
